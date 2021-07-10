@@ -1,0 +1,84 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+{% include 'accounts/status.html' %}
+
+<br>
+<div class="row">
+    <div class="col-md-5">
+        <h5>  CLIENTES:</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="{% url 'addnewcustomer'%}">
+                Crear Cliente
+            </a>
+            <a class="btn btn-success btn-sm btn-block" href="{% url 'pie-chart' %}">
+                Graficar Clientes Activos
+            </a>
+            <table id="bootstrapdatatable" class="table table-sm">
+                <thead>
+                    <th></th>
+                    <th>Tienda</th>
+                    <th>Nombre</th>
+                    <th>em@il</th>
+                </thead>
+                <tbody>
+                {% for customer in customers  %}
+                    <tr>
+                        <td><a class="btn btn-sm btn-info" href="{% url 'customer' customer.customer_id %}">Ver</a></td>
+                        <td>{{customer.store}}</td>
+                        <td>{{customer.first_name}} {{customer.last_name}}</td>
+                        <td>{{customer.email}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-7">
+        <h5>  Ultimas Rentas:</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="{% url 'addnewrental' %}">
+                Rentar Pelicula
+            </a>
+            <table id="bootstrapdatatablealternative" class="table table-sm">
+                <thead>
+                    <th>ID</th>
+                    <th>Fecha de Renta</th>
+                    <th>Inventario</th>
+                    <th>Cliente</th>
+                    <th>Fecha de Regreso</th>
+                    <th>Staff</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </thead>
+                <tbody>
+                {% for rental in rentals  %}
+                    <tr>
+                        <td>{{rental.rental_id}}</td>
+                        <td>{{rental.rental_date}}</td>
+                        <td>{{rental.inventory}}</td>
+                        <td>{{rental.customer}}</td>
+                        <td>{{rental.return_date}}</td>
+                        <td>{{rental.staff}}</td>
+                        <td><a class="btn btn-sm btn-warning" href="{% url 'editrental' rental.rental_id %}">Actualizar</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="{% url 'deleterental' rental.rental_id %}">Eliminar</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
+

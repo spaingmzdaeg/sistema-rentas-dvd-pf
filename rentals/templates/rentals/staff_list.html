@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Staff</h5>
+            <span><a href="{% url 'addnewemployee' %}" class="btn btn-primary">Agregar Nuevo Empleado</a></span>
+        </div>
+        <div class="table-responsive">
+            <table id="bootstrapdatatable" class="table table-striped table-bordered">
+                <thead>
+                    <th><input type="checkbox" id="checkall" /></th>
+                    <th>ID</th>
+                    <th>Imagen</th>
+                    <th>Username</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Direccion</th>
+                    <th>Email</th>
+                    <th>Tienda</th>
+                    <th>Activo</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </thead>
+                <tbody>
+                {% for employee in staffList %}
+                   <tr>
+                     <td><input type="checkbox" class="checkthis" /></td>
+                     <td>{{ employee.staff_id }}</td>
+                     <td><img src="{{ employee.picture.url }}"></td>
+                     <td>{{ employee.user.username }}</td>
+                     <td>{{ employee.first_name }}</td>
+                     <td>{{ employee.last_name }}</td>
+                     <td>{{ employee.address }}</td>
+                     <td>{{ employee.email }}</td>
+                     <td>{{ employee.store }}</td>
+                     <td>{{ employee.active }}</td>
+                     <td><a href="{% url 'updateemployee' employee.staff_id %}" class="btn btn-warning" type="submit">Actualizar</a></td>
+                     <td><a href="{% url 'deleteemployee' employee.staff_id %}" class="btn btn-danger" type="submit">Eliminar</a></td>
+                   </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

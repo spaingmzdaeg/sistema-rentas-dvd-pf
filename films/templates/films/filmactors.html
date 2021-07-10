@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <span><a href="{% url 'addnewfilmactor' %}" class="btn btn-primary">Agregar Nuevo Actor a Pelicula</a></span>
+        </div>
+        <div class="table-responsive">
+            <table id="bootstrapdatatable" class="table table-striped table-bordered">
+                <thead>
+                    <th><input type="checkbox" id="checkall" /></th>
+                    <th>Actor</th>
+                    <th>Pelicula</th>
+                    <th>Actualizar</th>
+                    <th>Modificar</th>
+                </thead>
+                <tbody>
+                {% for filmActor in filmActors %}
+                
+                   <tr>
+                     <td><input type="checkbox" class="checkthis" /></td>
+                     <td>{{ filmActor.actor }}</td>
+                     <td>{{filmActor.film}}</td>
+                     <td><a href="{% url 'editfilmactor' filmActor.id %}" class="btn btn-warning" type="submit">Actualizar/a></td>
+                     <td><a href="{% url 'deletefilmactor' filmActor.id %}" class="btn btn-danger" type="submit">Eliminar</a></td>
+                   </tr>
+                   
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

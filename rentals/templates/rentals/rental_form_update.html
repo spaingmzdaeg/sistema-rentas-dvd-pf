@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<div class="container">
+    <h2 class="text-center">Renta</h2>
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-8 col-lg-6 pb-5">
+
+
+                    <!--Form with header-->
+
+                    <form method="POST" id="ItemEditForm" class="post-form"  enctype='multipart/form-data' action="{% url 'updaterental' rental.rental_id %}">
+                    {% csrf_token %}  
+                        <div class="card border-primary rounded-0">
+                            <div class="card-header p-0">
+                                <div class="bg-warning text-white text-center py-2">
+                                    <h3><i class="icon-rental"></i> Actualizar Renta </h3>
+                                    <p class="m-0">chesterGamesShop</p>
+                                </div>
+                            </div>
+                            <div class="card-body p-3">
+
+                                <!--Body-->
+                                <h6>Fecha de Renta</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-year"></i></div>
+                                        </div>
+                                        <input type="date" id="rental_date" name="rental_date" value="{{ yearRental }}-{{ monthRental }}-{{ dayRental }}" Placeholder="aa-mm-dd">
+                                    </div>
+                                </div>
+
+                                <h6>Pelicula del Inventario</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-filmfield"></i></div>
+                                        </div>
+                                        <input type="text" id="inventory" name="inventory" list="inventorylist" value="{{ rental.inventory.inventory_id }}" Placeholder="Buscar Inventario.." class="form-control" style="width:300px;">
+                                        <datalist id="inventorylist">
+                                        {% for inventory in inventories %}
+                                        <option value="{{inventory.inventory_id}}">{{ inventory }}</option>    
+                                        {% endfor %}
+                                        </datalist>
+                                    </div>
+                                </div>
+
+                                <h6>Cliente</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-customerfield"></i></div>
+                                        </div>
+                                        <input type="text" id="customer" name="customer" list="customerlist" value="{{ rental.customer.customer_id }}" Placeholder="Buscar Cliente.." class="form-control" style="width:300px;">
+                                        <datalist id="customerlist">
+                                        {% for customer in customers %}
+                                        <option value="{{customer.customer_id}}">{{ customer }}</option>    
+                                        {% endfor %}
+                                        </datalist>
+                                    </div>
+                                </div>
+
+                                <h6>Fecha de Retorno</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-year"></i></div>
+                                        </div>
+                                        <input type="date" id="return_date" name="return_date" value="{{ yearReturn }}-{{ monthReturn }}-{{ dayReturn }}",Placeholder="aa-mm-dd">
+                                    </div>
+                                </div>
+
+                                
+
+                                <h6>Staff</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-filmactoractor"></i></div>
+                                        </div>
+                                        <input type="text" id="staff" name="staff" list="stafflist" value="{{ rental.staff.staff_id }}" Placeholder="Buscar Empleado.." class="form-control" style="width:300px;">
+                                        <datalist id="stafflist">
+                                        {% for employee in staffList %}
+                                        <option value="{{employee.staff_id}}">{{ employee }}</option>    
+                                        {% endfor %}
+                                        </datalist>
+                                    </div>
+                                </div>
+
+            
+
+
+                                <div class="text-center">
+                                    <input type="submit" value="Update" class="btn btn-warning btn-block rounded-0 py-2">
+                            </div>
+
+                            <div class="text-center">
+                                    <span><a href="{% url 'generatepayment' rental.rental_id %}" class="btn btn-primary">Generar Pago</a></span>
+                            </div>
+
+
+                        </div>
+                    </form>
+                    <!--Form with header-->
+
+
+                </div>
+	</div>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+// http://stackoverflow.com/a/24936814/4779449
+function datalistValidator(modelname) {
+		var obj = $("#inventorylist").find("option[value='" + modelname + "']");
+		if (obj != null && obj.length > 0) {
+				//alert("valid"); // allow form submission
+				return true
+		}
+		//alert("invalid"); // don't allow form submission
+		return false;
+}
+
+function datalistValidator2(modelname) {
+		var obj = $("#customerlist").find("option[value='" + modelname + "']");
+		if (obj != null && obj.length > 0) {
+				//alert("valid"); // allow form submission
+				return true
+		}
+		//alert("invalid"); // don't allow form submission
+		return false;
+}
+
+function datalistValidator3(modelname) {
+		var obj = $("#stafflist").find("option[value='" + modelname + "']");
+		if (obj != null && obj.length > 0) {
+				//alert("valid"); // allow form submission
+				return true
+		}
+		//alert("invalid"); // don't allow form submission
+		return false;
+}
+
+$(document).ready(function() {
+		$('#ItemEditForm').submit(function() {
+				var modelname = $("#inventory").val();
+				var existingModelName = $('1').text();
+				//alert("Submitted: " + modelname);
+				if (datalistValidator(modelname)) {
+						alert(modelname + " is valid inventory");
+						return true;
+				}
+				alert(modelname + " is not a valid inventory");
+				$("#inventory").val(existingModelName).focus().select().animate({
+						right: '25px'
+				}).animate({
+						left: '25px'
+				});
+				return false;
+		});
+
+        $('#ItemEditForm').submit(function() {
+				var modelname = $("#customer").val();
+				var existingModelName = $('1').text();
+				//alert("Submitted: " + modelname);
+				if (datalistValidator2(modelname)) {
+						alert(modelname + " is valid customer");
+						return true;
+				}
+				alert(modelname + " is not a valid customer");
+				$("#customer").val(existingModelName).focus().select().animate({
+						right: '25px'
+				}).animate({
+						left: '25px'
+				});
+				return false;
+		});
+
+        $('#ItemEditForm').submit(function() {
+				var modelname = $("#staff").val();
+				var existingModelName = $('1').text();
+				//alert("Submitted: " + modelname);
+				if (datalistValidator3(modelname)) {
+						alert(modelname + " is valid employee");
+						return true;
+				}
+				alert(modelname + " is not a valid employee");
+				$("#staff").val(existingModelName).focus().select().animate({
+						right: '25px'
+				}).animate({
+						left: '25px'
+				});
+				return false;
+		});
+});
+</script>
+
+{% endblock %}

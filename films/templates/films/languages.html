@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Languages</h5>
+            <span><a href="{% url 'addnewlanguage' %}" class="btn btn-primary">Agregar Idioma</a></span>
+        </div>
+        <div class="table-responsive">
+            <table id="bootstrapdatatable" class="table table-striped table-bordered">
+                <thead>
+                    <th><input type="checkbox" id="checkall" /></th>
+                    <th>ID</th>
+                    <th>Idioma</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </thead>
+                <tbody>
+                {% for language in languages %}
+                   <tr>
+                     <td><input type="checkbox" class="checkthis" /></td>
+                     <td>{{ language.language_id }}</td>
+                     <td>{{ language.name }}</td>
+                     <td><a href="{% url 'editlanguage' language.language_id %}" class="btn btn-warning" type="submit">Actualizar</a></td>
+                     <td><a href="{% url 'deletelanguage' language.language_id %}" class="btn btn-danger" type="submit">Eliminar</a></td>
+                   </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

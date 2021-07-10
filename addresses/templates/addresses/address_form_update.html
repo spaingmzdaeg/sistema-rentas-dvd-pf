@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<div class="container">
+    <h2 class="text-center">Formulario de Direccion</h2>
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-8 col-lg-6 pb-5">
+
+
+                    <!--Form with header-->
+
+                    <form method="POST" class="post-form"  enctype='multipart/form-data' action="{% url 'updateaddress' address.address_id %}">
+                    {% csrf_token %}  
+                        <div class="card border-primary rounded-0">
+                            <div class="card-header p-0">
+                                <div class="bg-warning text-white text-center py-2">
+                                    <h3><i class="icon-addresses"></i> Actualizar Direccion </h3>
+                                    <p class="m-0">ChesterGamesShop</p>
+                                </div>
+                            </div>
+                            <div class="card-body p-3">
+
+                                <!--Body-->
+                                <h6>Direccion</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-addressform"></i></div>
+                                        </div>
+                                        <input type="text" name="address" value="{{ address.address }}" placeholder="insgrese direccion"/>
+                                    </div>
+                                </div>
+                                <h6>Direccion Opcional</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-addressform"></i></div>
+                                        </div>
+                                        <input type="text" name="address2" value="{{ address.address2 }}" placeholder="ingrese direccion opcional"/>
+                                    </div>
+                                </div>
+                                
+                                <h6>Distrito</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-district"></i></div>
+                                        </div>
+                                        <input type="text" name="district" value="{{ address.district }}" placeholder="ingrese distrito"/>
+                                    </div>
+                                </div>
+                                
+                                <h6>Ciudad</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-city"></i></div>
+                                        </div>
+                                        <select name="city">
+                                        <option selected = "selected" value="{{ address.city.city_id }}">{{ address.city.city }}</option>
+                                        {% for city  in cities  %}
+                                        <option value="{{ city.city_id }}">{{ city.city }}</option>
+                                        {% endfor %}
+                                        
+                                        </select>
+                                       
+                                    </div>
+                                </div>
+                                
+                                <h6>Codigo Postal</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-postalcode"></i></div>
+                                        </div>
+                                        <input type="text" name="postal_code" value="{{ address.postal_code }}" placeholder="ingrese codigo postal"/>
+                                    </div>
+                                </div>
+
+                                <h6>Telefono</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-phone"></i></div>
+                                        </div>
+                                        <input type="text" name="phone" value="{{ address.phone }}" placeholder="ingrese telefono"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center">
+                                     <input type="submit" value="Agregar" class="btn btn-warning btn-block rounded-0 py-2">
+                            </div>
+
+                        </div>
+                    </form>
+                    <!--Form with header-->
+
+
+                </div>
+	</div>
+</div>
+
+
+{% endblock %}

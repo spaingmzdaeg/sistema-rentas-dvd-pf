@@ -1,0 +1,24 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <p>estas seguro de eliminar? "{{item}}" </p>
+
+            <form action="{% url 'deleteactor' item.actor_id %}" method="POST">
+                {% csrf_token %}
+                <a class="btn btn-warning" href="{% url 'actors' %}">Cancelar</a>
+
+                <input class="btn btn-danger" type="submit" value="Confirmar">
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}

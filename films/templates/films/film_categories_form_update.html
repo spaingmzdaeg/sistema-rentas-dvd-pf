@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<div class="container">
+    <h2 class="text-center">FilmActor</h2>
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-8 col-lg-6 pb-5">
+
+
+                    <!--Form with header-->
+
+                    <form method="POST" class="post-form"  enctype='multipart/form-data' action="{% url 'updatefilmcategory' filmCategory.id %}">
+                    {% csrf_token %}  
+                        <div class="card border-primary rounded-0">
+                            <div class="card-header p-0">
+                                <div class="bg-warning text-white text-center py-2">
+                                    <h3><i class="icon-category"></i> Actualizar Categorias en la pelicula </h3>
+                                    <p class="m-0">chesterGameShop</p>
+                                </div>
+                            </div>
+                            <div class="card-body p-3">
+                            <br>Categoria</br>
+                                <!--Body-->
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-filmcategorycategory"></i></div>
+                                        </div>
+                                        <input type="text" value="{{filmCategory.category.category_id}}" name="category" list="categorylist" Placeholder="Buscar Actor.." class="form-control" style="width:300px;">
+                                        <datalist id="categorylist">
+                                        <option selected="selected" value="{{filmCategory.category.category_id}}">{{filmCategory.category}}</option>
+                                        {% for category in categories %}
+                                        <option value="{{category.category_id}}">{{ category }}</option>    
+                                        {% endfor %}
+                                        </datalist>
+                                    </div>
+                                </div>
+                                <br>Pelicula</br>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-filmcategoryfilm"></i></div>
+                                        </div>
+                                        <input type="text" value="{{filmCategory.film.film_id}}" name="film" list="filmlist" Placeholder="Buscar Film.." class="form-control" style="width:300px;">
+                                        <datalist id="filmlist">
+                                        <option selected="selected" value="{{filmCategory.film.film_id}}">{{filmCategory.film}}</option>
+                                        {% for film in films %}
+                                        <option value="{{film.film_id}}">{{ film }}</option>    
+                                        {% endfor %}
+                                        </datalist>
+                                    </div>
+                                </div>
+
+                    
+                                <div class="text-center">
+                                     <input type="submit" value="Actualizar" class="btn btn-warning btn-block rounded-0 py-2">
+                            </div>
+
+                        </div>
+                    </form>
+                    <!--Form with header-->
+
+
+                </div>
+	</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+{% include 'accounts/status.html' %}
+
+<h3>Peliculas en Inventario</h3>
+
+<div class="row">
+	<div class="col-md">
+		<div class="table-responsive">
+			<table id="bootstrapdatatable" class="table table-sm">
+				<thead>
+					<th><input type="checkbox" id="checkall" /></th>
+                    <th>ID</th>
+                    <th>Pelicula</th>
+                    <th>Tienda</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+				</thead>
+                
+				<tbody>
+				{% for inventory in inventories %}
+				    <tr>
+                        <td><input type="checkbox" class="checkthis" /></td>
+                        <td>{{ inventory.inventory_id }}</td>
+                        <td>{{ inventory.film }}</td>
+                        <td>{{ inventory.store }}</td>
+                        <td><a href="{% url 'editinventory' inventory.inventory_id %}" class="btn btn-warning" type="submit">Actualizar</a></td>
+                        <td><a href="{% url 'deleteinventory' inventory.inventory_id %}" class="btn btn-danger" type="submit">Eliminar</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			
+			</table>
+		</div>
+	</div>
+</div>
+
+<br>
+
+<h3>Rentas</h3>
+
+<div class="row">
+	<div class="col-md">
+		<div class="table-responsive">
+			<table id="bootstrapdatatablealternative" class="table table-sm">
+				<thead>
+					<th><input type="checkbox" id="checkall" /></th>
+                    <th>ID</th>
+                    <th>Fecha de Renta</th>
+                    <th>Inventario</th>
+                    <th>Cliente</th>
+                    <th>Fecha de Retorno</th>
+                    <th>Staff</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+				</thead>
+                
+				<tbody>
+				{% for rental in rentals %}
+				    <tr>
+                     <td><input type="checkbox" class="checkthis" /></td>
+                     <td>{{ rental.rental_id }}</td>
+                     <td>{{ rental.rental_date }}</td>
+                     <td>{{ rental.inventory }}</td>
+                     <td>{{ rental.customer }}</td>
+                     <td>{{ rental.return_date }}</td>
+                     <td>{{ rental.staff }}</td>
+                     <td><a href="{% url 'editrental' rental.rental_id %}" class="btn btn-warning" type="submit">Actualizar</a></td>
+                     <td><a href="{% url 'deleterental' rental.rental_id %}" class="btn btn-danger" type="submit">Eliminar</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

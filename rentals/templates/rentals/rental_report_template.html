@@ -1,0 +1,15 @@
+{% extends 'rentals/report_base.html' %}
+
+{% block title %}
+rentals
+{% endblock title %}
+
+{% block content %}
+    {% for rental in object_list %}
+        {{rental}}
+        <a href="{% url 'rental-pdf-view' rental.pk %}"><button class = "btn btn-primary">pdf</button></a>
+        <br>
+        <hr>
+    {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,13 @@
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+security.py
+db.sqlite3
+my_env/
+.env
+db_postgre_exc.json
+db_postgre.json
+db.json
+db.sqlite3

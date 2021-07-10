@@ -1,0 +1,546 @@
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.navbar-icon-top .navbar-nav .nav-link > .fa {
+  position: relative;
+  width: 36px;
+  font-size: 24px;
+}
+
+.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
+  font-size: 0.75rem;
+  position: absolute;
+  right: 0;
+  font-family: sans-serif;
+}
+
+.navbar-icon-top .navbar-nav .nav-link > .fa {
+  top: 3px;
+  line-height: 12px;
+}
+
+.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
+  top: -10px;
+}
+
+.icon-dashboard {
+    background-image : url(../icons/dashboard.png);
+    background-size: cover;
+    display: block;
+    position :center;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-info {
+    background-image : url(../icons/info.png);
+    background-size: cover;
+    display: block;
+    position :center;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-dashboard-store {
+    background-image : url(../icons/dashboardstore.png);
+    background-size: cover;
+    display: block;
+    position :center;
+    height: 35px;
+    width: 35px;
+  }  
+  
+  .icon-films {
+    background-image : url(../icons/films.png);
+    background-size: cover;
+    display: block;
+    position :center;
+    height: 35px;
+    width: 35px;
+  }
+
+.icon-rental {
+    background-image : url(../icons/rental.png);
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-logo {
+    background-image : url(../icons/logo.png);
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  } 
+  
+  .icon-customer {
+    background-image : url(../icons/customers.png);
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+  
+  .icon-inventary {
+    background-image : url(../icons/inventory.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 35px;
+    width: 35px;
+  }
+  
+  .icon-store {
+    background-image : url(../icons/store.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 35px;
+    width: 35px;
+  }
+  
+  .icon-staff {
+    background-image : url(../icons/inventory.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-customerform {
+    background-image : url(../icons/staff_form.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 35px;
+    width: 35px;
+  }
+  
+  .icon-addresses {
+    background-image : url(../icons/address.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 35px;
+    width: 35px;
+  }
+  
+  .icon-actor {
+    background-image : url(../icons/actor.png);
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-category {
+    background-image : url(../icons/category.png);
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+  
+  .icon-image {
+    background-image : url(../icons/image.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-text {
+    background-image : url(../icons/text.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-language {
+    background-image : url(../icons/language.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-record {
+    background-image : url(../icons/record.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-year {
+    background-image : url(../icons/year.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-cost {
+    background-image : url(../icons/cost.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-classification {
+    background-image : url(../icons/classification.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-features {
+    background-image : url(../icons/features.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-filmactorfilm {
+    background-image : url(../icons/filmactorfilm.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-filmactoractor {
+    background-image : url(../icons/filmactoractor.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-filmcategorycategory {
+    background-image : url(../icons/category2.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-filmcategoryfilm {
+    background-image : url(../icons/filmactorfilm.png);
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-languages {
+    background-image : url(../icons/language2.png);
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-cityform {
+    background-image : url(../icons/city_form.png);
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-staffteam {
+    background-image : url(../icons/staff_team.png);
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-payment {
+    background-image : url(../icons/payment.png);
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-profile {
+    background-image : url(../icons/profile.png);
+    background-size: cover;
+    display: block;
+    position :center;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-countryform {
+    background-image : url(../icons/country_form.png);
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-addressform {
+    background-image : url(../icons/address_form.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-city {
+    background-image : url(../icons/city.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-postalcode {
+    background-image : url(../icons/postal_code.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-district {
+    background-image : url(../icons/district.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-phone {
+    background-image : url(../icons/phone.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-country {
+    background-image : url(../icons/flag.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-storefield {
+    background-image : url(../icons/store_field.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-email {
+    background-image : url(../icons/email.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-active {
+    background-image : url(../icons/active.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-user {
+    background-image : url(../icons/user.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-password {
+    background-image : url(../icons/password.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-manager {
+    background-image : url(../icons/manager.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-stafffield {
+    background-image : url(../icons/stafffield.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-filmfield {
+    background-image : url(../icons/filmfield.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-customerfield {
+    background-image : url(../icons/customer_field.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-paymentfield {
+    background-image : url(../icons/payment_field.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-amount {
+    background-image : url(../icons/amount.png);
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  
+
+
+@media (min-width: 576px) {
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+body{
+  background-color: #ebeff5;
+}
+#total-films{
+  background-color: #4cb4c7;
+}
+#rented-films{
+  background-color: #7abecc;
+}
+#non-rented-films{
+  background-color: #7CD1C0;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Rentals</h5>
+            <span><a href="{% url 'addnewrental' %}" class="btn btn-primary">Rentar Pelicula</a>
+                <a href="{% url 'rentals-list-view' %}" class="btn btn-warning">Reporte de Rentas</a>
+            </span>
+            
+        </div>
+        <div class="table-responsive">
+            <table id="bootstrapdatatable" class="table table-striped table-bordered">
+                <thead>
+                    <th><input type="checkbox" id="checkall" /></th>
+                    <th>ID</th>
+                    <th>Fecha de Renta</th>
+                    <th>Inventario</th>
+                    <th>Cliente</th>
+                    <th>Fecha de Retorno</th>
+                    <th>Staff</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                    <th>Reporte</th>
+                </thead>
+                <tbody>
+                {% for rental in rentals %}
+                   <tr>
+                     <td><input type="checkbox" class="checkthis" /></td>
+                     <td>{{ rental.rental_id }}</td>
+                     <td>{{ rental.rental_date }}</td>
+                     <td>{{ rental.inventory }}</td>
+                     <td>{{ rental.customer }}</td>
+                     <td>{{ rental.return_date }}</td>
+                     <td>{{ rental.staff }}</td>
+                     <td><a href="{% url 'editrental' rental.rental_id %}" class="btn btn-warning" type="submit">Actualizar</a></td>
+                     <td><a href="{% url 'deleterental' rental.rental_id %}" class="btn btn-danger" type="submit">Eliminar</a></td>
+                     <td><a href="{% url 'rental-pdf-view' rental.rental_id %}" class="btn btn-danger" type="submit">Reporte PDF</a></td>
+                   </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

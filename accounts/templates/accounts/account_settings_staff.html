@@ -1,0 +1,214 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% load has_group %}
+<link href="{% static 'accounts/styles/styles_main.css' %}" rel="stylesheet">
+{% block content %}
+
+<div class="container emp-profile">
+    <form method="POST" id="ItemEditForm" enctype="multipart/form-data">
+        {% csrf_token %}  
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img class="profile-pic" src="{{request.user.staff.picture.url}}" alt=""/>
+                    <div class="file btn btn-lg btn-primary">
+                        Cambiar Foto
+                        <input type="file" name="picture" value"{{ request.user.staff.picture.url }}" placeholder="Picture"/>  
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                            <h5>
+                                {{ request.user }}
+                            </h5>
+                            {% if request.user|has_group:"employee" %}
+                            <h6>
+                                Tipo de Usuario:Empleado-Staff
+                            </h6>
+                            {% endif %}
+                            {% if request.user|has_group:"manager" %}
+                            <h6>
+                                Tipo de Usuario:Gerente
+                            </h6>
+                            {% endif %}
+                            <p class="proile-rating">Tienda : <span>{{request.user.staff.store}}</span></p>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Address</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+            </div>
+        </div>
+        
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Usuario</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{request.user}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Nombre</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="first_name" value="{{ request.user.staff.first_name }}" placeholder="insert first name"/>  
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div>Apellido</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="last_name" value="{{ request.user.staff.last_name }}" placeholder="insert last name"/> 
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" size="30" name="email" value="{{ request.user.staff.email }}" placeholder="insert email"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Direccion</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        {{ request.user.staff.address }}
+                                        <input type="text" value="{{request.user.staff.address.address_id}}" id="address" name="address" list="addresslist" Placeholder="Search Address.." class="form-control" style="width:300px;">
+                                        <datalist id="addresslist">
+                                        {% for address in addresses %}
+                                        <option value="{{address.address_id}}">{{ address }}</option>    
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Tienda</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>{{ request.user.staff.store }}</div>
+                                        <input id="store" name="store" type="text" value="{{ request.user.staff.store.store_id }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Fecha de Creacion</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{request.user.staff.create_date}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Dias Activo</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{request.user.staff.active}}</p>
+                                        
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Experiencia</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Experto</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Hourly Rate</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>100mxn$/hr</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Horas Totales</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>230</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Nivel de Ingles</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Experto</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Disponibilidad</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>6 meses</p>
+                                    </div>
+                                </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Tu Biografia</label><br/>
+                                <p>Tu descripcion detallada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>           
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+// http://stackoverflow.com/a/24936814/4779449
+function datalistValidator(modelname) {
+		var obj = $("#addresslist").find("option[value='" + modelname + "']");
+		if (obj != null && obj.length > 0) {
+				//alert("valid"); // allow form submission
+				return true
+		}
+		//alert("invalid"); // don't allow form submission
+		return false;
+}
+
+
+$(document).ready(function() {
+		$('#ItemEditForm').submit(function() {
+				var modelname = $("#address").val();
+				var existingModelName = $('1').text();
+				//alert("Submitted: " + modelname);
+				if (datalistValidator(modelname)) {
+						alert(modelname + " es Direccion Valida");
+						return true;
+				}
+				alert(modelname + " es Direccion Invalida");
+				$("#address").val(existingModelName).focus().select().animate({
+						right: '25px'
+				}).animate({
+						left: '25px'
+				});
+				return false;
+		});
+});
+</script>
+
+{% endblock %}

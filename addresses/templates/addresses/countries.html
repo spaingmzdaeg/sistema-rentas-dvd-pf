@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Paises</h5>
+            <span><a href="{% url 'addnewcountry' %}" class="btn btn-primary">Agregar Nuevo Pais</a></span>
+        </div>
+        <div class="table-responsive">
+            <table id="bootstrapdatatable" class="table table-striped table-bordered">
+                <thead>
+                    <th><input type="checkbox" id="checkall" /></th>
+                    <th>ID</th>
+                    <th>Pais</th>
+                    <th>Ultima Actualizacion</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </thead>
+                <tbody>
+                {% for country in countries %}
+                   <tr>
+                     <td><input type="checkbox" class="checkthis" /></td>
+                     <td>{{ country.country_id }}</td>
+                     <td>{{ country.country }}</td>
+                     <td>{{ country.last_update }}</td>
+                     <td><a href="{% url 'editcountry' country.country_id %}" class="btn btn-warning" type="submit">Actualizar</a></td>
+                     <td><a href="{% url 'deletecountry' country.country_id %}" class="btn btn-danger" type="submit">Eliminar</a></td>
+                   </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

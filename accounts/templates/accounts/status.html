@@ -1,0 +1,94 @@
+{% load has_group %}
+
+<br>
+
+<div class="row">
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-black bg-primary mb-3" id="ordenes-totales">
+                <div class="card-header">
+                    <h5 class="card-title">Inventario Disponible</h5>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{ totalFilms }}</h3>
+             </div>
+        </div>
+     </div>
+  </div>
+
+  <div class="col">
+    <div class="col-md">
+        <div class="card text-center text-black bg-success mb-3" id="ordenes-liberadas">
+            <div class="card-header">
+                <h5 class="card-title">Rentas Totales</h5>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">{{ rentalFilms }}</h3>
+         </div>
+    </div>
+ </div>
+</div>
+
+{% if request.user|has_group:"admin" or  request.user|has_group:"manager"  %}
+<div class="col">
+    <div class="col-md">
+        <div class="card text-center text-black bg-danger mb-3" id="ordenes-pendientes">
+            <div class="card-header">
+                <h5 class="card-title">Clientes Activos</h5>
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">{{ activeCustomers }}</h3>
+         </div>
+    </div>
+ </div>
+</div>
+
+<div class="col">
+    <div class="col-md">
+        <div class="card text-center text-black bg-white mb-3" id="ordenes-pendientes">
+            <div class="card-header">
+                <h5 class="card-title">Clientes Activos</h5>
+            </div>
+            <div class="card-body">
+                <div id="container" style="width: 75%;">
+                    <canvas id="pie-chart"></canvas>
+                  </div>
+         </div>
+    </div>
+ </div>
+
+{% endif %} 
+
+</div>
+
+
+
+</div>
+
+{% if request.user|has_group:"admin" or  request.user|has_group:"manager"  %}
+<script>
+
+    var config = {
+      type: 'pie',
+      data: {
+        datasets: [{
+          data: {{ data|safe }},
+          backgroundColor: [
+            '#0202E7', '#E70202', '#A9A9A9', '#C0C0C0', '#D3D3D3'
+          ],
+          label: 'Population'
+        }],
+        labels: {{ labels|safe }}
+      },
+      options: {
+        responsive: true
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('pie-chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+
+  </script>
+{% endif %}

@@ -1,0 +1,128 @@
+{% extends 'accounts/main.html' %}
+{% block content %}
+{% include 'accounts/status.html' %}
+
+<h3>Clientes</h3>
+
+<div class="row">
+	<div class="col-md">
+		<div class="table-responsive">
+			<table id="bootstrapdatatable" class="table table-sm">
+				<thead>
+					<th><input type="checkbox" id="checkall" /></th>
+                    <th>ID</th>
+                    <th>Tienda</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Direccion</th>
+                    <th>Active Bool</th>
+                    <th>Fecha de Creacion</th>
+                    <th>Activo</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+				</thead>
+                
+				<tbody>
+				{% for customer in customers %}
+				    <tr>
+					 <td><input type="checkbox" class="checkthis" /></td>
+                     <td>{{ customer.customer_id }}</td>
+                     <td>{{ customer.store }}</td>
+                     <td>{{ customer.first_name }}</td>
+                     <td>{{ customer.last_name }}</td>
+                     <td>{{ customer.email }}</td>
+                     <td>{{ customer.address }}</td>
+                     <td>{{ customer.activebool }}</td>
+                     <td>{{ customer.create_date }}</td>
+                     <td>{{ customer.active }}</td>
+                     <td><a href="{% url 'updatecustomer' customer.customer_id %}" class="btn btn-warning" type="submit">Actualizar</a></td>
+                     <td><a href="{% url 'deletecustomer' customer.customer_id %}" class="btn btn-danger" type="submit">Eliminar</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			
+			</table>
+		</div>
+	</div>
+</div>
+
+<br>
+
+<h3>Films in Inventory</h3>
+
+<div class="row">
+	<div class="col-md">
+		<div class="table-responsive">
+			<table id="bootstrapdatatablealternative" class="table table-sm">
+				<thead>
+					<th><input type="checkbox" id="checkall" /></th>
+                    <th>ID</th>
+                    <th>Film</th>
+                    <th>Store</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+				</thead>
+                
+				<tbody>
+				{% for inventory in inventories %}
+				    <tr>
+                        <td><input type="checkbox" class="checkthis" /></td>
+                        <td>{{ inventory.inventory_id }}</td>
+                        <td>{{ inventory.film }}</td>
+                        <td>{{ inventory.store }}</td>
+                        <td><a href="{% url 'editinventory' inventory.inventory_id %}" class="btn btn-warning" type="submit">Update</a></td>
+                        <td><a href="{% url 'deleteinventory' inventory.inventory_id %}" class="btn btn-danger" type="submit">Delete</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			
+			</table>
+		</div>
+	</div>
+</div>
+
+<br>
+
+<h3>Rentals</h3>
+
+<div class="row">
+	<div class="col-md">
+		<div class="table-responsive">
+			<table id="bootstrapdatatablealternative3" class="table table-sm">
+				<thead>
+					<th><input type="checkbox" id="checkall" /></th>
+                    <th>ID</th>
+                    <th>Rental Date</th>
+                    <th>Inventory</th>
+                    <th>Customer</th>
+                    <th>Return Date</th>
+                    <th>Staff</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+				</thead>
+                
+				<tbody>
+				{% for rental in rentals %}
+				    <tr>
+                     <td><input type="checkbox" class="checkthis" /></td>
+                     <td>{{ rental.rental_id }}</td>
+                     <td>{{ rental.rental_date }}</td>
+                     <td>{{ rental.inventory }}</td>
+                     <td>{{ rental.customer }}</td>
+                     <td>{{ rental.return_date }}</td>
+                     <td>{{ rental.staff }}</td>
+                     <td><a href="{% url 'editrental' rental.rental_id %}" class="btn btn-warning" type="submit">Update</a></td>
+                     <td><a href="{% url 'deleterental' rental.rental_id %}" class="btn btn-danger" type="submit">Delete</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			
+			</table>
+		</div>
+	</div>
+</div>
+
+
+
+{% endblock content %}

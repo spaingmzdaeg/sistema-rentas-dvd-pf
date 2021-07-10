@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Direcciones</h5>
+            <span><a href="{% url 'addnewaddress' %}" class="btn btn-primary">Agregar Nueva Direccion</a></span>
+        </div>
+        <div class="table-responsive">
+            <table id="bootstrapdatatable" class="table table-striped table-bordered">
+                <thead>
+                    <th><input type="checkbox" id="checkall" /></th>
+                    <th>ID</th>
+                    <th>Direccion</th>
+                    <th>Segunda Direccion</th>
+                    <th>Ciudad</th>
+                    <th>Distrito</th>
+                    <th>Codigo Postal</th>
+                    <th>Telefono</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </thead>
+                <tbody>
+                {% for address in addresses %}
+                   <tr>
+                     <td><input type="checkbox" class="checkthis" /></td>
+                     <td>{{ address.address_id }}</td>
+                     <td>{{ address.address }}</td>
+                     <td>{{ address.address2 }}</td>
+                     <td>{{ address.city }}</td>
+                     <td>{{ address.district }}</td>
+                     <td>{{ address.postal_code }}</td>
+                     <td>{{ address.phone }}</td>
+                     <td><a href="{% url 'editaddress' address.address_id %}" class="btn btn-warning" type="submit">Actualizar</a></td>
+                     <td><a href="{% url 'deleteaddress' address.address_id %}" class="btn btn-danger" type="submit">Eliminar</a></td>
+                   </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

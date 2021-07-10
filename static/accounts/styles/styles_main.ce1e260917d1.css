@@ -1,0 +1,546 @@
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.navbar-icon-top .navbar-nav .nav-link > .fa {
+  position: relative;
+  width: 36px;
+  font-size: 24px;
+}
+
+.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
+  font-size: 0.75rem;
+  position: absolute;
+  right: 0;
+  font-family: sans-serif;
+}
+
+.navbar-icon-top .navbar-nav .nav-link > .fa {
+  top: 3px;
+  line-height: 12px;
+}
+
+.navbar-icon-top .navbar-nav .nav-link > .fa > .badge {
+  top: -10px;
+}
+
+.icon-dashboard {
+    background-image : url("../icons/dashboard.471d486cbdb0.png");
+    background-size: cover;
+    display: block;
+    position :center;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-info {
+    background-image : url("../icons/info.302639131744.png");
+    background-size: cover;
+    display: block;
+    position :center;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-dashboard-store {
+    background-image : url("../icons/dashboardstore.7d1f3d4f5b25.png");
+    background-size: cover;
+    display: block;
+    position :center;
+    height: 35px;
+    width: 35px;
+  }  
+  
+  .icon-films {
+    background-image : url("../icons/films.f6a6f54d4236.png");
+    background-size: cover;
+    display: block;
+    position :center;
+    height: 35px;
+    width: 35px;
+  }
+
+.icon-rental {
+    background-image : url("../icons/rental.43f89a00974f.png");
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-logo {
+    background-image : url("../icons/logo.9b38afbf4ba9.png");
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  } 
+  
+  .icon-customer {
+    background-image : url("../icons/customers.2b09a79c6514.png");
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+  
+  .icon-inventary {
+    background-image : url("../icons/inventory.121edb7f4a9d.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 35px;
+    width: 35px;
+  }
+  
+  .icon-store {
+    background-image : url("../icons/store.55b664e15b79.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 35px;
+    width: 35px;
+  }
+  
+  .icon-staff {
+    background-image : url("../icons/inventory.121edb7f4a9d.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-customerform {
+    background-image : url("../icons/staff_form.25b399dd60d0.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 35px;
+    width: 35px;
+  }
+  
+  .icon-addresses {
+    background-image : url("../icons/address.d585e51a075a.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 35px;
+    width: 35px;
+  }
+  
+  .icon-actor {
+    background-image : url("../icons/actor.1ad8cc8618a0.png");
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-category {
+    background-image : url("../icons/category.d13fc562b8c2.png");
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+  
+  .icon-image {
+    background-image : url("../icons/image.20d729651782.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-text {
+    background-image : url("../icons/text.1abdbc6fd409.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-language {
+    background-image : url("../icons/language.a1e05dbcac8c.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-record {
+    background-image : url("../icons/record.7b4db88311b4.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-year {
+    background-image : url("../icons/year.2f09cd46803a.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-cost {
+    background-image : url("../icons/cost.8dfd395e3cee.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-classification {
+    background-image : url("../icons/classification.81d6d2773226.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-features {
+    background-image : url("../icons/features.fb304634ea51.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-filmactorfilm {
+    background-image : url("../icons/filmactorfilm.7a195e1d2945.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-filmactoractor {
+    background-image : url("../icons/filmactoractor.959ffe1ece9f.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-filmcategorycategory {
+    background-image : url("../icons/category2.e0075b13c235.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-filmcategoryfilm {
+    background-image : url("../icons/filmactorfilm.7a195e1d2945.png");
+    background-size: cover;
+    display: block;
+    position: center;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-languages {
+    background-image : url("../icons/language2.0741c1547a46.png");
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-cityform {
+    background-image : url("../icons/city_form.e4d765e06e5b.png");
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-staffteam {
+    background-image : url("../icons/staff_team.3aae08527a24.png");
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-payment {
+    background-image : url("../icons/payment.31fcfe8adc3d.png");
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-profile {
+    background-image : url("../icons/profile.76e7cc910182.png");
+    background-size: cover;
+    display: block;
+    position :center;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-countryform {
+    background-image : url("../icons/country_form.31205dd6892c.png");
+    background-size: cover;
+    display: block;
+    height: 35px;
+    width: 35px;
+  }
+
+  .icon-addressform {
+    background-image : url("../icons/address_form.65e440592e05.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-city {
+    background-image : url("../icons/city.95cfb4a2329c.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-postalcode {
+    background-image : url("../icons/postal_code.8c032a5e74ea.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-district {
+    background-image : url("../icons/district.f4e48e07501f.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-phone {
+    background-image : url("../icons/phone.d1cfd8e6d93d.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-country {
+    background-image : url("../icons/flag.ec9b1ea3f4d5.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-storefield {
+    background-image : url("../icons/store_field.f882567a81b2.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-email {
+    background-image : url("../icons/email.5ecb2a1dc1d2.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-active {
+    background-image : url("../icons/active.85da1020734f.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-user {
+    background-image : url("../icons/user.0068d78fd990.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-password {
+    background-image : url("../icons/password.2a74556861e3.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-manager {
+    background-image : url("../icons/manager.59f1fe550125.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-stafffield {
+    background-image : url("../icons/stafffield.b18310bf2c89.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-filmfield {
+    background-image : url("../icons/filmfield.07db2dc020cc.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-customerfield {
+    background-image : url("../icons/customer_field.bc56ae1b19cb.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-paymentfield {
+    background-image : url("../icons/payment_field.555c10963d39.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  .icon-amount {
+    background-image : url("../icons/amount.26cc2e1ce24c.png");
+    background-size: cover;
+    display: block;
+    height: 15px;
+    width: 15px;
+  }
+
+  
+
+
+@media (min-width: 576px) {
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+@media (min-width: 768px) {
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link {
+    text-align: center;
+    display: table-cell;
+    height: 70px;
+    vertical-align: middle;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa {
+    display: block;
+    width: 48px;
+    margin: 2px auto 4px auto;
+    top: 0;
+    line-height: 24px;
+  }
+
+  .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa > .badge {
+    top: -7px;
+  }
+}
+
+body{
+  background-color: #ebeff5;
+}
+#total-films{
+  background-color: #4cb4c7;
+}
+#rented-films{
+  background-color: #7abecc;
+}
+#non-rented-films{
+  background-color: #7CD1C0;
+}

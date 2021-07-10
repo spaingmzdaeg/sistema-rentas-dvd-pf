@@ -1,0 +1,190 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+<link href="{% static 'accounts/styles/styles_main.css' %}" rel="stylesheet">
+{% block content %}
+
+<div class="container emp-profile">
+    <form method="POST" id="ItemEditForm" enctype="multipart/form-data">
+        {% csrf_token %}  
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img class="profile-pic" src="{{request.user.customer.profile_pic.url}}" alt=""/>
+                    <div class="file btn btn-lg btn-primary">
+                        Cambiar Foto
+                        <input type="file" name="profile_pic" value"{{ request.user.customer.profile_pic.url }}" placeholder="Picture"/>  
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                            <h5>
+                                {{ request.user }}
+                            </h5>
+                            <h6>
+                                Tipo de Usuario:Usuario-Cliente
+                            </h6>
+                            <p class="proile-rating">Tienda : <span>{{request.user.customer.store}}</span></p>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Address</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+            </div>
+        </div>
+        
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Usuario</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{request.user}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Nombre</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="first_name" value="{{ request.user.customer.first_name }}" placeholder="insert first name"/>  
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div>Apellido</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="last_name" value="{{ request.user.customer.last_name }}" placeholder="insert last name"/> 
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="email" size="30" name="email" value="{{ request.user.customer.email }}" placeholder="insert email"/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Direccion</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div>{{ request.user.customer.address }}</div>
+                                        <input id="address" name="address" type="hidden" value="{{ request.user.customer.address.address_id }}" readonly>
+                                        <input id="activebool" name="activebool" type="hidden" value="{{ request.user.customer.activebool }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Tienda</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" value="{{request.user.customer.store.store_id}}" id="store" name="store" list="storelist" Placeholder="Search Store.." class="form-control" style="width:300px;">
+                                        <datalist id="storelist">
+                                        {% for store in stores %}
+                                        <option value="{{store.store_id}}">{{ store }}</option>    
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Experiencia</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Experto</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Pago por Hora</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>100$mxn/hr</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Horas Trabajadas</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>230</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Nivel de Ingles</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Experto</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Disponibilidad</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>6 meses</p>
+                                    </div>
+                                </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Tu Biografia</label><br/>
+                                <p>Tu Descripcion Detallada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>           
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+// http://stackoverflow.com/a/24936814/4779449
+
+function datalistValidator2(modelname) {
+		var obj = $("#storelist").find("option[value='" + modelname + "']");
+		if (obj != null && obj.length > 0) {
+				//alert("valid"); // allow form submission
+				return true
+		}
+		//alert("invalid"); // don't allow form submission
+		return false;
+}
+
+$(document).ready(function() {
+        $('#ItemEditForm').submit(function() {
+				var modelname = $("#store").val();
+				var existingModelName = $('1').text();
+				//alert("Submitted: " + modelname);
+				if (datalistValidator2(modelname)) {
+						alert(modelname + " es una tienda valida");
+						return true;
+				}
+				alert(modelname + " no es una tienda valida");
+				$("#store").val(existingModelName).focus().select().animate({
+						right: '25px'
+				}).animate({
+						left: '25px'
+				});
+				return false;
+		});
+});
+</script>
+
+{% endblock %}

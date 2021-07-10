@@ -1,0 +1,85 @@
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Cliente:</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'updatecustomer' customer.customer_id %}">Actualizar Cliente</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'createnewrental' customer.customer_id %}">Realizar una Renta</a>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Informacio de Contacto</h5>
+			<hr>
+			<p>Email: {{ customer.email }}</p>
+			<p>Direccion: {{ customer.address }}</p>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Rentas Totales</h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px">{{ rentalsNumber }}</h1>
+		</div>
+	</div>
+</div>
+
+<br>
+<div class="row">
+	<div class="col">
+		<div class="card card-body">
+			<form method="get">
+			   
+
+		    <button class="btn btn-primary" type="submit">Buscar</button>
+		  </form>
+		</div>
+	</div>
+	
+</div>
+<br>
+
+<div class="row">
+	<div class="col-md">
+		<div class="table-responsive">
+			<table id="bootstrapdatatable" class="table table-sm">
+				<thead>
+					<th>ID</th>
+					<th>Fecha de Renta</th>
+					<th>Inventorio</th>
+					<th>Cliente</th>
+					<th>Fecha de Regreso</th>
+                    <th>Staff</th>
+					<th>Actualizar</th>
+					<th>Eliminar</th>
+				</thead>
+                
+				<tbody>
+				{% for rental in rentals %}
+				    <tr>
+					    <td>{{rental.rental_id}}</td>
+						<td>{{rental.rental_date}}</td>
+					    <td>{{rental.inventory}}</td>
+						<td>{{rental.customer}}</td>
+						<td>{{rental.return_date}}</td>
+                        <td>{{rental.staff}}</td>
+						<td><a class="btn btn-sm btn-info" href="{% url 'editrental' rental.rental_id %}">Actualizar</a></td>
+                        <td><a class="btn btn-sm btn-danger" href="{% url 'deleterental' rental.rental_id %}">Eliminar</a></td>
+					</tr>
+				{% endfor %}
+			</tbody>
+			
+			</table>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

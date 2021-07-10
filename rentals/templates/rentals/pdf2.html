@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte de Rentas</title>
+    <style>
+        .back {
+         background-color: 'red'
+        }
+    </style>
+</head>
+<body>
+       <hr>
+    RESUMEN {{rental}}
+       <hr>
+    CLIENTE:{{rental.customer|linebreaks}}
+       <hr>
+    Pelicula Inventario {{rental.inventory|linebreaks}}
+       <hr>
+    Empleado {{rental.staff|linebreaks}}
+       <hr>
+     Fecha de Renta {{rental.rental_date|linebreaks}}
+       <hr>
+    
+
+    {{rental.inventory.film.cover}}
+       <br>
+    {{rental.inventory.film.cover.url}}
+       <br>
+    {{rental.inventory.film.cover.path}}
+       <br>
+
+       
+
+    <img src={{rental.inventory.film.film_cover.path}} height='200px'>   
+    <img src={{rental.inventory.film.film_cover.url}} height='200px'>
+    <img src="media/logo.png" height='200px'>    
+
+
+
+</body>
+</html>

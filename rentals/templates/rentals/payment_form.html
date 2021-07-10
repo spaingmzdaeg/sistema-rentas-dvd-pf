@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<div class="container">
+    <h2 class="text-center">Pago</h2>
+	<div class="row justify-content-center">
+		<div class="col-12 col-md-8 col-lg-6 pb-5">
+
+
+                    <!--Form with header-->
+
+                    <form method="POST" id="ItemEditForm" class="post-form"  enctype='multipart/form-data' action="{% url 'addnewpayment' %}">
+                    {% csrf_token %}  
+                        <div class="card border-primary rounded-0">
+                            <div class="card-header p-0">
+                                <div class="bg-success text-white text-center py-2">
+                                    <h3><i class="icon-payment"></i> Agregar Pago </h3>
+                                    <p class="m-0">chesterGamesShop</p>
+                                </div>
+                            </div>
+                            <div class="card-body p-3">
+
+                                <!--Body-->
+
+                                <h6>Cliente</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-customerfield"></i></div>
+                                        </div>
+                                        <input type="text" id="customer"  name="customer" list="customerlist" value="{{ rental.customer.customer_id }}" readonly class="form-control" style="width:300px;">
+                                        <datalist id="customerlist">
+                                        {% for customer in customers %}
+                                        <option value="{{customer.customer_id}}">{{ customer }}</option>    
+                                        {% endfor %}
+                                        </datalist>
+                                    </div>
+                                </div>
+                                
+                                <h6>Staff</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-stafffield"></i></div>
+                                        </div>
+                                        <input type="text" id="staff" name="staff" list="stafflist" value="{{ rental.staff.staff_id}}" readonly class="form-control" style="width:300px;">
+                                        <datalist id="stafflist">
+                                        {% for employee in staffList %}
+                                        <option value="{{employee.staff_id}}">{{ employee }}</option>    
+                                        {% endfor %}
+                                        </datalist>
+                                    </div>
+                                </div>
+
+                                <h6>Renta</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-filmfield"></i></div>
+                                        </div>
+                                        <input type="text" id="rental" name="rental" list="rentallist" value="{{ rental.rental_id }}" readonly class="form-control" style="width:300px;">
+                                        <datalist id="rentallist">
+                                        {% for rental in rentals %}
+                                        <option value="{{rental.rental_id}}">{{ rental }}</option>    
+                                        {% endfor %}
+                                        </datalist>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-amount"></i></div>
+                                        </div>
+                                        <input type="number" id="amount" name="amount" Placeholder="amount" step=".01" required="required">
+                                    </div>
+                                </div>
+
+
+                                <h6>Fecha de Pago</h6>
+                                <div class="form-group">
+                                    <div class="input-group mb-2">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="icon-year"></i></div>
+                                        </div>
+                                        <input type="datetime-local" id="payment_date" name="payment_date" value="{{ yearRental }}-{{ monthRental }}-{{ dayRental }}T19:30" Placeholder="aa-mm-dd">
+                                    </div>
+                                </div>
+
+                                
+            
+
+
+                                <div class="text-center">
+                                    <input type="submit" value="Pagar" class="btn btn-success btn-block rounded-0 py-2">
+                            </div>
+
+                        </div>
+                    </form>
+                    <!--Form with header-->
+
+
+                </div>
+	</div>
+</div>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script>
+// http://stackoverflow.com/a/24936814/4779449
+function datalistValidator(modelname) {
+		var obj = $("#rentallist").find("option[value='" + modelname + "']");
+		if (obj != null && obj.length > 0) {
+				//alert("valid"); // allow form submission
+				return true
+		}
+		//alert("invalid"); // don't allow form submission
+		return false;
+}
+
+function datalistValidator2(modelname) {
+		var obj = $("#customerlist").find("option[value='" + modelname + "']");
+		if (obj != null && obj.length > 0) {
+				//alert("valid"); // allow form submission
+				return true
+		}
+		//alert("invalid"); // don't allow form submission
+		return false;
+}
+
+function datalistValidator3(modelname) {
+		var obj = $("#stafflist").find("option[value='" + modelname + "']");
+		if (obj != null && obj.length > 0) {
+				//alert("valid"); // allow form submission
+				return true
+		}
+		//alert("invalid"); // don't allow form submission
+		return false;
+}
+
+$(document).ready(function() {
+		$('#ItemEditForm').submit(function() {
+				var modelname = $("#rental").val();
+				var existingModelName = $('1').text();
+				//alert("Submitted: " + modelname);
+				if (datalistValidator(modelname)) {
+						alert(modelname + " is valid rental");
+						return true;
+				}
+				alert(modelname + " is not a valid rental");
+				$("#rental").val(existingModelName).focus().select().animate({
+						right: '25px'
+				}).animate({
+						left: '25px'
+				});
+				return false;
+		});
+
+        $('#ItemEditForm').submit(function() {
+				var modelname = $("#customer").val();
+				var existingModelName = $('1').text();
+				//alert("Submitted: " + modelname);
+				if (datalistValidator2(modelname)) {
+						alert(modelname + " is valid customer");
+						return true;
+				}
+				alert(modelname + " is not a valid customer");
+				$("#customer").val(existingModelName).focus().select().animate({
+						right: '25px'
+				}).animate({
+						left: '25px'
+				});
+				return false;
+		});
+
+        $('#ItemEditForm').submit(function() {
+				var modelname = $("#staff").val();
+				var existingModelName = $('1').text();
+				//alert("Submitted: " + modelname);
+				if (datalistValidator3(modelname)) {
+						alert(modelname + " is valid employee");
+						return true;
+				}
+				alert(modelname + " is not a valid employee");
+				$("#staff").val(existingModelName).focus().select().animate({
+						right: '25px'
+				}).animate({
+						left: '25px'
+				});
+				return false;
+		});
+});
+</script>
+
+{% endblock %}

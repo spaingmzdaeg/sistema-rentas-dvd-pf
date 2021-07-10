@@ -1,0 +1,151 @@
+{% load static %}
+{% load has_group %}
+<style>
+  #hello-msg{
+    font-size: 18px;
+    color: #000;
+    margin-right: 20px;
+  }
+</style>
+
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-light" style="background-color: #68EDC6;">
+        <img src="{% static 'accounts/images/logov4.png' %}">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              {% if request.user|has_group:"user" %}
+              <a class="nav-link" href="{% url 'user-page' %}">
+                <i class="icon-info"></i>
+                Info
+                <span class="sr-only">(current)</span>
+                </a>
+                {% endif %}
+              {% if request.user|has_group:"manager" %}
+              <a class="nav-link" href="{% url 'manager-page' %}">
+                <i class="icon-dashboard-store"></i>
+                Dashboard
+                <span class="sr-only">(current)</span>
+                </a>
+                {% endif %}
+                {% if request.user|has_group:"employee" %}
+              <a class="nav-link" href="{% url 'employee-page' %}">
+                <i class="icon-dashboard-store"></i>
+                Dashboard
+                <span class="sr-only">(current)</span>
+                </a>
+                {% endif %}
+            </li>
+            <li class="nav-item active">
+              {% if request.user|has_group:"admin" %}
+              <a class="nav-link" href="{% url 'home' %}">
+                <i class="icon-dashboard"></i>
+                Dashboard
+                <span class="sr-only">(current)</span>
+                </a>
+                {% endif %}
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="icon-films">
+                </i>
+                Peliculas
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'films' %}">Todas las Peliculas</a>
+                <a class="dropdown-item" href="{% url 'actors' %}">Actores</a>
+                <a class="dropdown-item" href="{% url 'filmactors' %}">Reparto en Peliculas</a>
+                <a class="dropdown-item" href="{% url 'categories' %}">Categorias</a>
+                <a class="dropdown-item" href="{% url 'filmcategories' %}">Categorias en Peliculas</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{% url 'languages' %}">Idiomas</a>
+              </div>
+            </li>
+            {% if request.user|has_group:"admin" or  request.user|has_group:"manager" or  request.user|has_group:"employee" %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="icon-rental">
+                </i>
+                Rentas
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'rentals' %}">Rentas</a>
+                <a class="dropdown-item" href="{% url 'payments' %}">Pagos</a>
+              </div>
+            </li>
+            {% endif %}
+            {% if request.user|has_group:"admin" or  request.user|has_group:"manager" or  request.user|has_group:"employee" %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'customers' %}">
+                <i class="icon-customer">
+                </i>
+                Clientes
+              </a>
+            </li>
+            {% endif %}
+            {% if request.user|has_group:"admin" or  request.user|has_group:"manager" or  request.user|has_group:"employee" %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'inventories' %}">
+                <i class="icon-inventary">
+                </i>
+                Inventarios
+              </a>
+            </li>
+            {% endif %}
+            {% if request.user|has_group:"admin" %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'stores' %}">
+                <i class="icon-store">
+                </i>
+                Tiendas
+              </a>
+            </li>
+            {% endif %}
+            {% if request.user|has_group:"admin" or  request.user|has_group:"manager" %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'stafflist' %}">
+                <i class="icon-staffteam">
+                </i>
+                Staff
+              </a>
+            </li>
+            {% endif %}
+            {% if request.user|has_group:"admin" or  request.user|has_group:"manager" or  request.user|has_group:"employee" %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="icon-addresses">
+                </i>
+                Direcciones
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'addresses' %}">Todas las Direcciones</a>
+                <a class="dropdown-item" href="{% url 'cities' %}">Ciudades</a>
+                <a class="dropdown-item" href="{% url 'countries' %}">Naciones</a>
+              </div>
+            </li>  
+            {% endif %}
+            {% if request.user|has_group:"user" %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'account' %}">
+                <i class="icon-profile">
+                </i>
+                Configuracion
+              </a>
+            </li>
+            {% endif %}
+            {% if request.user|has_group:"employee" or request.user|has_group:"manager" %}
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'accountstaff' %}">
+                <i class="icon-profile">
+                </i>
+                Configuracion
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+          <span id="hello-msg">Hello, {{request.user}} </span>
+          <span><a href="{% url 'logout' %}">Logout</a></span>
+        </div>
+      </nav>

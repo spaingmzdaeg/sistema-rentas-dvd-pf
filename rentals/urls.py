@@ -1,0 +1,41 @@
+from django.urls import path
+from .import views
+from django.contrib.auth.decorators import login_required
+
+urlpatterns = [
+    path('stafflist',views.staff,name="stafflist"),
+    path('addnewemployee',views.addNewEmployee,name='addnewemployee'),
+    path('editemployee/<int:id>', views.editEmployee,name='editemployee'),
+    path('updateemployee/<int:id>', views.updateEmployee,name='updateemployee'),
+    path('deleteemployee/<int:id>', views.deleteEmployee,name='deleteemployee'),
+    path('stores',views.stores,name="stores"),
+    path('addnewstore',views.addNewStore,name='addnewstore'),
+    path('editestore/<int:id>', views.editStore,name='editstore'),
+    path('updatestore/<int:id>', views.updateStore,name='updatestore'),
+    path('deletestore/<int:id>', views.deleteStore,name='deletestore'),
+    path('customers',views.customers,name="customers"),
+    path('addnewcustomer',views.addNewCustomer,name='addnewcustomer'),
+    path('editcustomer/<int:id>', views.editCustomer,name='editcustomer'),
+    path('updatecustomer/<int:id>', views.updateCustomer,name='updatecustomer'),
+    path('deletecustomer/<int:id>', views.deleteCustomer,name='deletecustomer'),
+    path('inventories',views.inventories,name="inventories"),
+    path('addnewinventory',views.addNewInventory,name='addnewinventory'),
+    path('editinventory/<int:id>', views.editInventory,name='editinventory'),
+    path('updateinventory/<int:id>', views.updateInventory,name='updateinventory'),
+    path('deleteinventory/<int:id>', views.deleteInventory,name='deleteinventory'),
+    path('rentals',views.rentals,name="rentals"),
+    path('addnewrental',views.addNewRental,name='addnewrental'),
+    path('editrental/<int:id>', views.editRental,name='editrental'),
+    path('updaterental/<int:id>', views.updateRental,name='updaterental'),
+    path('payments',views.payments,name="payments"),
+    path('deleterental/<int:id>', views.deleteRental,name='deleterental'),
+    path('generatepayment/<int:id>',views.generatePayment,name='generatepayment'),
+    path('addnewpayment',views.addNewPayment,name='addnewpayment'),
+    path('editpayment/<int:id>', views.editPayment,name='editpayment'),
+    path('updatepayment/<int:id>', views.updatePayment,name='updatepayment'),
+    path('deletepayment/<int:id>', views.deletePayment,name='deletepayment'),
+    path('rentals-list-view',login_required(views.RentalsListView.as_view()),name='rentals-list-view'),
+    path('test/',views.render_pdf_view,name='test-view'),
+    path('pdf/<pk>/',views.rentals_render_pdf_view,name='rental-pdf-view'),
+    
+]

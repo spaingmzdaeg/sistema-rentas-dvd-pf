@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% extends 'accounts/main.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+            <h5>Inventarios</h5>
+            <span><a href="{% url 'addnewinventory' %}" class="btn btn-primary">Agregar Pelicula a Inventario</a></span>
+        </div>
+        <div class="table-responsive">
+            <table id="bootstrapdatatable" class="table table-striped table-bordered">
+                <thead>
+                    <th><input type="checkbox" id="checkall" /></th>
+                    <th>ID</th>
+                    <th>Pelicula</th>
+                    <th>Tienda</th>
+                    <th>Actualizar</th>
+                    <th>Eliminar</th>
+                </thead>
+                <tbody>
+                {% for inventory in inventories %}
+                   <tr>
+                     <td><input type="checkbox" class="checkthis" /></td>
+                     <td>{{ inventory.inventory_id }}</td>
+                     <td>{{ inventory.film }}</td>
+                     <td>{{ inventory.store }}</td>
+                     <td><a href="{% url 'editinventory' inventory.inventory_id %}" class="btn btn-warning" type="submit">Actualizar</a></td>
+                     <td><a href="{% url 'deleteinventory' inventory.inventory_id %}" class="btn btn-danger" type="submit">Eliminar</a></td>
+                   </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
